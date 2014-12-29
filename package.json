@@ -1,0 +1,76 @@
+{
+  "name": "NodeTemplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "jade": "*",
+    "yaboss":"*",
+    "log4js":"*",
+    "mongodb":"*",
+    "cheerio":"*",
+	"request":"*",
+	"underscore":"*",
+	"amqplib": "*",
+	"feedparser":"*",
+	"string":"*",
+	"csv":"0.2.x",
+	"connect-timeout":"*",
+	"async":"*",
+	"moment":"*",
+	"gauss":"*",
+	"step":"*",
+	"url":"*"
+  }  ,
+  "devDependencies": {
+    "mocha": "*",
+      "should":"*",
+      "sinon":"*",
+      "nock":"*",
+      "supertest":"*",
+      "rewire":"*",
+      "istanbul":"*",
+      "jshint":"*",
+      "jscs":"*"
+
+
+},
+    "jshintConfig":{ "asi": true
+        , "boss": true
+        , "browser": true
+        , "camelcase": true
+        , "curly": false
+        , "devel": false
+        , "devel": true
+        , "eqeqeq": true
+        , "eqnull": true
+        , "es5": false
+        , "evil": false
+        , "immed": false
+        , "indent": 2
+        , "jquery": true
+        , "latedef": false
+        , "laxbreak": true
+        , "laxcomma": true
+        , "maxcomplexity": 6
+        , "maxdepth": 4
+        , "maxstatements": 25
+        , "newcap": true
+        , "node": true
+        , "noempty": false
+        , "nonew": true
+        , "quotmark": "single"
+        , "smarttabs": true
+        , "strict": false
+        , "trailing": false
+        , "undef": true
+        , "unused": true
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive -R spec -r should",
+        "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage"
+    }
+}
