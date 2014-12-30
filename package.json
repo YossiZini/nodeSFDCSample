@@ -23,7 +23,9 @@
 	"moment":"*",
 	"gauss":"*",
 	"step":"*",
-	"url":"*"
+	"url":"*",
+      "base64url": "*",
+      "salesforce-signed-request": "*"
   }  ,
   "devDependencies": {
     "mocha": "*",

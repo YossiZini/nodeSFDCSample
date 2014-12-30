@@ -42,7 +42,37 @@ if ('development' == app.get('env')) {
 
 
 app.get('/users', user.list);
+app.post('/signedrequest', processSignedRequest);
 
+
+
+
+var decode = require('salesforce-signed-request');
+
+
+
+function processSignedRequest(req, res) {
+    var shipment = new Shipment();
+    try {
+        var json = func(req.body.signed_request, config.APP_SECRET);
+        res.render("index", json);
+    } catch (e) {
+        res.render("error", {
+            "error": errors.SIGNED_REQUEST_PARSING_ERROR
+        });
+    }
+}
+
+func = function processSignedRequest(signedRequest, APP_SECRET) {
+    var sfContext = decode(signedRequest, APP_SECRET);
+    //console.log(sfContext);
+    return {
+        oauthToken: sfContext.client.oauthToken,
+        instanceUrl: sfContext.client.instanceUrl
+
+    }
+    //        warehouseId: sfContext.context.environment.parameters.id //sent as parameters via visualForce parameters
+};
 
 
 var func=function(){
